@@ -102,6 +102,10 @@
    {
       "matches": ["*://zvooq.ru/*"],
       "js": ["jquery-1.6.1.min.js", "zvooq.js"]
+   },
+   {
+      "matches": ["*://www.rhapsody.com/*"],
+      "js": ["jquery-1.6.1.min.js", "jquery.dump.js", "rhapsody.js"]
    }
 
 
