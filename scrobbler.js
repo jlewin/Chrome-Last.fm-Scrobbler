@@ -12,7 +12,7 @@
  */
 
 const APP_NAME = "Chrome Last.fm Scrobbler";
-const APP_VERSION = "1.3";
+const APP_VERSION = "1.8";
 
 
 // browser tab with actually scrobbled track
@@ -470,8 +470,7 @@ function submit() {
  * validate(artist, track) - validate artist-track pair against last.fm and return false or the valid song     
  */  
 chrome.extension.onRequest.addListener(
-
-	function(request, sender, sendResponse) {
+	function(request, sender, sendResponse) {            
          switch(request.type) {
                
             // Called when a new song has started playing. If the artist/track is filled,
@@ -585,11 +584,9 @@ chrome.extension.onRequest.addListener(
                   sendResponse( res );                  
                   break;
 		
-        case "napsterModuleEnabled":
-            sendResponse({enabled: localStorage['useNapsterModule'] == 1});
          
-        default:
-            console.log('Unknown request: %s', $.dump(request));
+            default:
+                  console.log('Unknown request: %s', $.dump(request));
          }
 	}
 );

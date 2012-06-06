@@ -1,38 +1,30 @@
 {
    "name": "Last.fm Scrobbler",
-   "version": "1.3",
-   
-   "description": "Scrobble music videos all around the web!",  
+   "version": "1.8.1",
+
+   "description": "Scrobble music all around the web!",
    "icons": {
       "128": "icon128.png"
    },
-   
+
    "background_page": "background.html",
    "options_page": "options.html",
-   
+
    "permissions": [
    "tabs",
    "notifications",
    "http://ws.audioscrobbler.com/2.0/",
    "http://gdata.youtube.com/feeds/api/videos/"
    ],
-   
+
    "page_action": {
       "chromeBroken": "remove this line after issue #86449 is resolved"
    },
 
    "content_scripts": [
    {
-      "matches": [ "http://music.napster.com/*", "https://music.napster.com/*" ],
-      "js": [ "napster.js" ]
-   },
-   {
       "matches": ["<all_urls>"],
       "js": ["dummy.js"]
-   },
-   {
-      "matches": ["*://grooveshark.com/*"],
-      "js": ["jquery-1.6.1.min.js", "jquery.dump.js", "grooveshark.js"]
    },
    {
       "matches": ["*://www.ttnetmuzik.com.tr/*"],
@@ -41,20 +33,23 @@
    {
       "matches": ["*://www.youtube.com/watch*", "*://www.youtube.com/user/*"],
       "js": ["jquery-1.6.1.min.js", "jquery.dump.js", "youtube.js"],
-      "css": ["youtube.css"],
-      "run_at" : "document_start"
+      "css": ["youtube.css"]
    },
    {
       "matches": ["*://www.thesixtyone.com/*"],
       "js": ["jquery-1.6.1.min.js", "jquery.dump.js", "61.js"]
    },
    {
-      "matches": ["*://music.google.com/*"],
+      "matches": ["*://play.google.com/music/*"],
       "js": ["jquery-1.6.1.min.js", "jquery.dump.js", "googlemusic.js"]
    },
    {
       "matches": ["*://www.myspace.com/music/player*"],
       "js": ["jquery-1.6.1.min.js", "jquery.dump.js", "myspace.js"]
+   },
+   {
+      "matches": ["*://pitchfork.com/*"],
+      "js": ["jquery-1.6.1.min.js", "jquery.dump.js", "pitchfork.js"]
    },
    {
       "matches": ["*://www.fftunes.com/*"],
@@ -63,7 +58,52 @@
    {
       "matches": ["*://fizy.com/*"],
       "js": ["jquery-1.6.1.min.js", "jquery.dump.js", "fizy.js"]
+   },
+   {
+      "matches": ["http://www.virginradioturkiye.com/live","http://live.radioeksen.com/live"],
+      "js": ["jquery-1.6.1.min.js", "jquery.dump.js", "virginradiotr.js"]
+   },
+   {
+      "matches": ["http://ghostly.com/discovery/play"],
+      "js": ["jquery-1.6.1.min.js", "jquery.dump.js", "ghostly.js"],
+	  "css": ["ghostly.css"]
+   },
+   {
+      "matches": ["*://*.bandcamp.com/*"],
+      "js": ["jquery-1.6.1.min.js", "jquery.dump.js", "bandcamp.js"],
+      "run_at": "document_idle"
+   },
+   {
+      "matches": ["*://plus.google.com/*youtube/player"],
+      "js": ["jquery-1.6.1.min.js", "jquery.dump.js", "google+.js"],
+      "run_at": "document_idle"
+   },
+   {
+      "matches": ["*://www.pandora.com/*"],
+      "js": ["jquery-1.6.1.min.js", "jquery.dump.js", "pandora.js"],
+      "run_at" : "document_start"
+   },
+   {
+      "matches": ["*://www.deezer.com/*"],
+      "js": ["jquery-1.6.1.min.js", "jquery.dump.js", "deezer.js"]
+   },
+   {
+      "matches": ["*://www.amazon.com/gp/dmusic/mp3/player*"],
+      "js": ["jquery-1.6.1.min.js", "jquery.dump.js", "amazon.js"]
+   },
+   {
+      "matches": ["*://z-music.org/*"],
+      "js": ["jquery-1.6.1.min.js", "zmusic.js"]
+   },
+   {
+      "matches": ["*://vk.com/*"],
+      "js": ["jquery-1.6.1.min.js", "vk.js"]
+   },
+   {
+      "matches": ["*://zvooq.ru/*"],
+      "js": ["jquery-1.6.1.min.js", "zvooq.js"]
    }
-   ]
 
+
+   ]
 }
